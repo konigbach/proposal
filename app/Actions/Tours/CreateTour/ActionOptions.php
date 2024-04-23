@@ -6,6 +6,6 @@ final readonly class ActionOptions
 {
     public function __construct(
         public string $name,
-    ){
+    ) {
     }
 }
