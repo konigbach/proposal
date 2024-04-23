@@ -3,7 +3,6 @@
 namespace App\Actions\Tours\CreateTour;
 
 use App\Events\TourCreated;
-use App\Http\Api\Tours\Response;
 use App\Models\Tour;
 use Illuminate\Contracts\Events\Dispatcher;
 
@@ -14,7 +13,7 @@ final readonly class Action
     ) {
     }
 
-    public function execute(ActionOptions $options): Response
+    public function execute(ActionOptions $options): ActionResponse
     {
         $tour = new Tour();
         $tour->name = $options->name;
@@ -23,6 +22,6 @@ final readonly class Action
 
         $this->dispatcher->dispatch(new TourCreated($tour));
 
-        return new Response($tour);
+        return new ActionResponse($tour);
     }
 }

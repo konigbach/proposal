@@ -2,7 +2,12 @@
 
 namespace App\Actions\Tours\CreateTour;
 
-class ActionResponse
-{
+use App\Models\Tour;
 
+final readonly class ActionResponse
+{
+    public function __construct(
+        public Tour $tour
+    ) {
+    }
 }
